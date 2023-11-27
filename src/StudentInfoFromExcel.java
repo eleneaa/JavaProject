@@ -4,13 +4,15 @@ import java.util.Arrays;
 
 import org.apache.poi.hssf.usermodel.*;
 
+
 public class StudentInfoFromExcel {
     public static void main(String[] args) throws IOException{
+        var dbloader = new DBLoader();
         String[] students = new String[1035];
 
-        HSSFWorkbook myExcelBook = new HSSFWorkbook(new FileInputStream("C:/Users/Пользователь/Downloads/basicprogramming.xls"));
+        HSSFWorkbook myExcelBook = new HSSFWorkbook(new FileInputStream("./src/basicprogramming.xls"));
         HSSFSheet myExcelSheet = myExcelBook.getSheet("Основы программирования");
-        for (int i = 0; i<1033; i++) {
+        for (int i = 3; i<1033; i++) {
             HSSFRow row = myExcelSheet.getRow(i);
             String[] studentInfo;
             String str = new String();
@@ -31,11 +33,13 @@ public class StudentInfoFromExcel {
                 str+="; " + group;
             }
             studentInfo = str.split("; ");
-            //System.out.println(Arrays.toString(studentInfo));
-            students[i] = Arrays.toString(studentInfo);
+            System.out.println(Arrays.toString(studentInfo));
+            if (studentInfo.length==4) dbloader.AddStudent(studentInfo);
+            students[i-3] = Arrays.toString(studentInfo);
         }
         for (String student: students){
-            System.out.println(student+"\n");
+            //System.out.println(student+"\n");
+            //;
         }
         myExcelBook.close();
 
