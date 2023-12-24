@@ -41,4 +41,22 @@ public class DBPusher {
         db.createTableExercisesScores(exercises);
         db.createTableThemesPracticesAndExercises();
     }
+
+    public void addScoreIntoTables () throws IOException, URISyntaxException, ParseException, InterruptedException, SQLException, ClassNotFoundException, CsvValidationException {
+        var br = new BufferedReader(new FileReader("token.txt"));
+        var token = br.readLine();
+        var csvParser = new ParseCSV("basicprogramming.csv");
+        var apiParser = new UlearnParse(token);
+        var practices = apiParser.getAllPractices();
+        var exercises = apiParser.getAllExercises();
+        var themes = apiParser.getAllThemes();
+        var practicesScores = csvParser.parseUsersPracticesScores(practices);
+        db.addThemes(themes);
+        db.addExercises(exercises);
+        /*db.addPractices(practices);
+        db.addPracticesScores(practicesScores);*/
+        var exercisesScores = csvParser.parseUsersExercisesScores(exercises);
+        db.addExercisesScores(exercisesScores);
+
+    }
 }

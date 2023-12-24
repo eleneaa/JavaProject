@@ -172,10 +172,4 @@ public class UlearnParse {
         return json;
     }
 
-    private JSONObject loadJson() throws IOException, ParseException {
-        var parser = new JSONParser();
-        return (JSONObject) parser.parse(new FileReader("jsononline-net.json"));
-
-    }
-
 }
