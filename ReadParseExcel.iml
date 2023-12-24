@@ -8,6 +8,13 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="poi-3.15" level="project" />
-    <orderEntry type="library" name="mysql-connector-j-8.2.0" level="project" />
+    <orderEntry type="library" name="commons-lang3-3.14.0" level="project" />
+    <orderEntry type="library" name="json-simple-4.0.1" level="project" />
+    <orderEntry type="library" name="jcommon-1.0.23" level="project" />
+    <orderEntry type="library" name="json-simple-1.1.1" level="project" />
+    <orderEntry type="library" name="opencsv-5.8" level="project" />
+    <orderEntry type="library" name="jcommon-1.0.24" level="project" />
+    <orderEntry type="library" name="java" level="project" />
+    <orderEntry type="library" name="mysql-connector-j-8.2.01" level="project" />
   </component>
 </module>
